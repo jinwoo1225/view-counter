@@ -31,7 +31,11 @@ export async function GET() {
     return new NextResponse(svg, {
       headers: {
         'Content-Type': 'image/svg+xml',
-        'Cache-Control': 'no-cache',
+        'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0',
+        'Surrogate-Control': 'no-store',
+        'Vercel-CDN-Cache-Control': 'no-store',
       },
     });
   } catch (error) {
