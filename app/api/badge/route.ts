@@ -6,8 +6,12 @@ const redis = new Redis(process.env.REDIS_URL || 'redis://localhost:6379');
 export async function GET() {
   try {
     let count: number = Number(await redis.get('view-count')) || 0;
-    count++;
-    await redis.set('view-count', count);
+
+    if (count === 0) {
+      await redis.set('view-count', 1);
+    } else {
+      await redis.incr('view-count');
+    }
 
     const svg = `
       <svg xmlns="http://www.w3.org/2000/svg" width="120" height="20">
