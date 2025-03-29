@@ -1,4 +1,5 @@
 import Redis from 'ioredis';
+import { revalidatePath } from 'next/cache';
 import { NextResponse } from 'next/server';
 
 const redis = new Redis(process.env.REDIS_URL || 'redis://localhost:6379');
@@ -12,6 +13,8 @@ export async function GET() {
     } else {
       await redis.incr('view-count');
     }
+
+    revalidatePath('/api/badge');
 
     const svg = `
       <svg xmlns="http://www.w3.org/2000/svg" width="120" height="20">
