@@ -2,7 +2,7 @@
 
 이 프로젝트는 GitHub README에서 조회수를 표시하는 간단한 프로젝트입니다.
 
-![View Counter](https://your-vercel-domain.vercel.app/api/badge)
+[![Hits](https://view-counter-jinwoo1225.vercel.app/api/badge)](https://view-counter-jinwoo1225.vercel.app/)
 
 ## 사용 방법
 
