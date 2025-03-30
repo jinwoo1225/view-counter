@@ -40,7 +40,7 @@ export default function Home() {
         flexWrap: 'wrap',
         justifyContent: 'center'
       }}>
-        <a href="/badge" style={{
+        <a href="/api/badge" style={{
           padding: '1rem 2rem',
           background: '#4c1',
           color: 'white',
